@@ -45,6 +45,11 @@ describe("Login", () => {
         userEvent.type(getUsernameInput(), "banane");
         expect(getUsernameInput()).toHaveDisplayValue("banane");
     });
+
+    test("can write things in password field", () => {
+        userEvent.type(screen.getByLabelText("Password"), "password");
+        expect(screen.getByLabelText("Password")).toHaveDisplayValue("password");
+    });
 });
 
 function getSubmitButton() {
