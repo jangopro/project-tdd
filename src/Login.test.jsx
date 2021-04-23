@@ -17,7 +17,7 @@ describe("Login", () => {
     });
 
     test("should display a username field", () => {
-        expect(screen.getByLabelText("Username")).toBeInTheDocument();
+        expect(getUsernameInput()).toBeInTheDocument();
     });
 
     test("should display a password field", () => {
@@ -25,19 +25,32 @@ describe("Login", () => {
     });
 
     test("should render a submit button", () => {
-        expect(screen.getByRole("button")).toBeInTheDocument();
+        expect(getSubmitButton()).toBeInTheDocument();
     });
 
     test("submit button should be disabled when the username field is empty", () => {
-        expect(screen.getByRole("button")).toBeDisabled();
+        expect(getSubmitButton()).toBeDisabled();
     });
 
     test.todo("submit button should be disabled when the password field is empty");
 
     test.skip("submit button is enabled when both fields have value", () => {
-        userEvent.type(screen.getByLabelText("Username"), "charles");
+        userEvent.type(getUsernameInput(), "charles");
         userEvent.type(screen.getByLabelText("Password"), "pwd");
 
-        expect(screen.getByRole("button")).toBeEnabled();
+        expect(getSubmitButton()).toBeEnabled();
+    });
+
+    test("can write things in username field", () => {
+        userEvent.type(getUsernameInput(), "banane");
+        expect(getUsernameInput()).toHaveDisplayValue("banane");
     });
 });
+
+function getSubmitButton() {
+    return screen.getByRole("button");
+}
+
+function getUsernameInput() {
+    return screen.getByLabelText("Username");
+}
