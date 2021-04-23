@@ -21,7 +21,7 @@ describe("Login", () => {
     });
 
     test("should display a password field", () => {
-        expect(screen.getByLabelText("Password")).toBeInTheDocument();
+        expect(getPasswordInput()).toBeInTheDocument();
     });
 
     test("should render a submit button", () => {
@@ -36,7 +36,7 @@ describe("Login", () => {
 
     test.skip("submit button is enabled when both fields have value", () => {
         userEvent.type(getUsernameInput(), "charles");
-        userEvent.type(screen.getByLabelText("Password"), "pwd");
+        userEvent.type(getPasswordInput(), "pwd");
 
         expect(getSubmitButton()).toBeEnabled();
     });
@@ -47,10 +47,14 @@ describe("Login", () => {
     });
 
     test("can write things in password field", () => {
-        userEvent.type(screen.getByLabelText("Password"), "password");
-        expect(screen.getByLabelText("Password")).toHaveDisplayValue("password");
+        userEvent.type(getPasswordInput(), "password");
+        expect(getPasswordInput()).toHaveDisplayValue("password");
     });
 });
+
+function getPasswordInput() {
+    return screen.getByLabelText("Password");
+}
 
 function getSubmitButton() {
     return screen.getByRole("button");
