@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 
 import Login from "./Login";
+import userEvent from "@testing-library/user-event";
 
 function renderLogin() {
     render(<Login />);
@@ -25,5 +26,18 @@ describe("Login", () => {
 
     test("should render a submit button", () => {
         expect(screen.getByRole("button")).toBeInTheDocument();
+    });
+
+    test("submit button should be disabled when the username field is empty", () => {
+        expect(screen.getByRole("button")).toBeDisabled();
+    });
+
+    test.todo("submit button should be disabled when the password field is empty");
+
+    test.skip("submit button is enabled when both fields have value", () => {
+        userEvent.type(screen.getByLabelText("Username"), "charles");
+        userEvent.type(screen.getByLabelText("Password"), "pwd");
+
+        expect(screen.getByRole("button")).toBeEnabled();
     });
 });
