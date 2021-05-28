@@ -42,7 +42,7 @@ describe("Login", () => {
         expect(getSubmitButton()).toBeDisabled();
     });
 
-    test.skip("submit button is enabled when both fields have value", () => {
+    test("submit button is enabled when both fields have value", () => {
         userEvent.type(getUsernameInput(), "charles");
         userEvent.type(getPasswordInput(), "pwd");
 
