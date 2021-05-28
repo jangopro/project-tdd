@@ -37,6 +37,11 @@ describe("Login", () => {
         expect(getSubmitButton()).toBeDisabled();
     });
 
+    test("submit button should be disabled when the username field is empty", () => {
+        userEvent.type(getPasswordInput(), "1234");
+        expect(getSubmitButton()).toBeDisabled();
+    });
+
     test.skip("submit button is enabled when both fields have value", () => {
         userEvent.type(getUsernameInput(), "charles");
         userEvent.type(getPasswordInput(), "pwd");
