@@ -28,11 +28,14 @@ describe("Login", () => {
         expect(getSubmitButton()).toBeInTheDocument();
     });
 
-    test("submit button should be disabled when the username field is empty", () => {
+    test("submit button should be disabled by default", () => {
         expect(getSubmitButton()).toBeDisabled();
     });
 
-    test.todo("submit button should be disabled when the password field is empty");
+    test("submit button should be disabled when the password field is empty", () => {
+        userEvent.type(getUsernameInput(), "1234");
+        expect(getSubmitButton()).toBeDisabled();
+    });
 
     test.skip("submit button is enabled when both fields have value", () => {
         userEvent.type(getUsernameInput(), "charles");
