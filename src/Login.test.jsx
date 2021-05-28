@@ -7,21 +7,25 @@ function renderLogin() {
     render(<Login />);
 }
 
-describe("Login", () => {
-    beforeEach(() => {
-        renderLogin();
-    });
+beforeEach(() => {
+    renderLogin();
+});
 
+describe("display UI and check default state", () => {
     test("should render a login component", () => {
         expect(screen.getByText("Login")).toBeInTheDocument();
     });
 
-    test("should display a username field", () => {
+    test("initialize username field", () => {
         expect(getUsernameInput()).toBeInTheDocument();
+        expect(getUsernameInput()).toHaveDisplayValue("");
+        expect(getUsernameInput()).toBeEnabled();
     });
 
-    test("should display a password field", () => {
+    test("initialize password field", () => {
         expect(getPasswordInput()).toBeInTheDocument();
+        expect(getPasswordInput()).toHaveDisplayValue("");
+        expect(getPasswordInput()).toBeEnabled();
     });
 
     test("should render a submit button", () => {
@@ -31,7 +35,12 @@ describe("Login", () => {
     test("submit button should be disabled by default", () => {
         expect(getSubmitButton()).toBeDisabled();
     });
+});
 
+describe("error state", () => {});
+
+describe("display error message form state", () => {});
+describe("enable/ disable submit button", () => {
     test("submit button should be disabled when the password field is empty", () => {
         userEvent.type(getUsernameInput(), "1234");
         expect(getSubmitButton()).toBeDisabled();
@@ -48,17 +57,8 @@ describe("Login", () => {
 
         expect(getSubmitButton()).toBeEnabled();
     });
-
-    test("can write things in username field", () => {
-        userEvent.type(getUsernameInput(), "banane");
-        expect(getUsernameInput()).toHaveDisplayValue("banane");
-    });
-
-    test("can write things in password field", () => {
-        userEvent.type(getPasswordInput(), "password");
-        expect(getPasswordInput()).toHaveDisplayValue("password");
-    });
 });
+describe("actions", () => {});
 
 function getPasswordInput() {
     return screen.getByLabelText("Password");
