@@ -7,13 +7,15 @@ export default function Login() {
 
     function handleUsernameChange(value) {
         setUsernameText(value);
-        if (usernameText !== "" && passwordText !== "") {
-            setDisabledButton(false);
-        }
+        areFieldsEmpty();
     }
 
     function handlePasswordChange(value) {
         setPasswordText(value);
+        areFieldsEmpty();
+    }
+
+    function areFieldsEmpty() {
         if (usernameText !== "" && passwordText !== "") {
             setDisabledButton(false);
         }
