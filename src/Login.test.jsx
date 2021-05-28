@@ -37,7 +37,19 @@ describe("display UI and check default state", () => {
     });
 });
 
-describe("error state", () => {});
+describe("error state", () => {
+    describe.skip("password ", () => {
+        const testingValues = [
+            [0, true],
+            [1, true],
+            [20, true],
+            [21, false],
+        ];
+        test.each(testingValues)("given %p when %p", (firstArg, booleanValue) => {
+            expect(getPasswordInput().value.length === firstArg).toBe(booleanValue);
+        });
+    });
+});
 
 describe("display error message form state", () => {});
 describe("enable/ disable submit button", () => {
