@@ -40,7 +40,7 @@ describe("display error message form state", () => {});
 
 describe("actions", () => {
 
-    test('should send the values to the backend', () => {
+    test('should call the service controller "login" when clicking the submit button', () => {
         // Given
         const login = jest.spyOn(LoginServiceController, 'login');
 
