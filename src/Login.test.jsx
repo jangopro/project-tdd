@@ -51,6 +51,17 @@ describe("actions", () => {
         expect(login).toHaveBeenCalledTimes(1);
     });
 
+    test('should close form then login success', () => {
+        // Given
+        const login = jest.spyOn(LoginServiceController, 'login').mockReturnValue(true)
+
+        // When
+        userEvent.click(getSubmitButton());
+
+        // Then
+        expect(screen.queryByText("Login")).not.toBeInTheDocument();
+    });
+
 });
 
 function getPasswordInput() {
