@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 
 import Login from "./Login";
+import LoginServiceController from "./LoginServiceController";
+import userEvent from "@testing-library/user-event";
 
 function renderLogin() {
     render(<Login />);
@@ -36,7 +38,20 @@ describe("error state", () => {});
 
 describe("display error message form state", () => {});
 
-describe("actions", () => {});
+describe("actions", () => {
+
+    test('should send the values to the backend', () => {
+        // Given
+        const login = jest.spyOn(LoginServiceController, 'login');
+
+        // When
+        userEvent.click(getSubmitButton());
+
+        // Then
+        expect(login).toHaveBeenCalledTimes(1);
+    });
+
+});
 
 function getPasswordInput() {
     return screen.getByLabelText("Password");
