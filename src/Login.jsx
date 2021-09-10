@@ -1,3 +1,8 @@
 export default function Login() {
-    return <div></div>;
+    return (
+        <form>
+            <label htmlFor="username">Phone, email or username</label>
+            <input type="text" name="username" id="username" />
+        </form>
+    );
 }
