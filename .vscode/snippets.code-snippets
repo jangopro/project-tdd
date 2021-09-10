@@ -1,0 +1,63 @@
+{
+    "importRTL": {
+        "body": [
+            "import {render, screen} from '@testing-library/react';",
+            "import ${TM_FILENAME_BASE/(.test)//}, {Props} from '../${TM_FILENAME_BASE/(.test)//}'"
+          ],
+        "description": "Create a template for a test file with react-testing-library",
+        "prefix": "importRTL",
+        "scope": "react,typescript"
+    },
+    "importBTL": {
+        "body": [
+            "import {render, screen} from 'backbone-testing-library';",
+            "import ${TM_FILENAME_BASE/(.test)//} from '../${TM_FILENAME_BASE/(.test)//}'"
+          ],
+        "description": "Create a template for a test file with backbone-testing-library",
+        "prefix": "importBTL",
+        "scope": "typescript"
+    },
+    "testAAA": {
+        "body": [
+            "test('should ${0}', () => {",
+            "\t// Arrange\n\t${1}",
+            "\t// Act\n\t",
+            "\t// Assert\n\t",
+            "});"
+        ],
+        "description": "Creates a test block with the AAA comments",
+        "prefix": "testAAA",
+        "scope": "javascriptreact"
+    },
+    "typeScriptReactFunctionalComponent": {
+        "prefix": "rfc",
+        "body": [
+            "type Props = {",
+            "\t",
+            "}",
+            "",
+            "export default function ${1:${TM_FILENAME_BASE}}({}: Props): JSX.Element {",
+            "\treturn (",
+            "\t\t<div>",
+            "\t\t\t$0",
+            "\t\t</div>",
+            "\t)",
+            "}"
+        ],
+        "description": "Creates a React Functional Component with ES7 module system and TypeScript interface",
+        "scope": "typescriptreact,typescript"
+    },
+    "debugTest": {
+        "body": [
+          "test.each(Array(${0:10}).fill(0))(",
+          "\t'tentative #%#',",
+          "\t() => {",
+          "\t\t// Test to debug",
+          "\t}",
+          ");"
+        ],
+        "description": "creates a test block with a loop to debug an unstable test",
+        "prefix": "debugTest",
+        "scope": "javascriptreact,typescript"
+      },
+}
