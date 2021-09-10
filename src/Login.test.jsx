@@ -7,3 +7,11 @@ test("make sure the username field is displayed", () => {
     // Assert
     expect(screen.getByLabelText("Phone, email or username")).toBeVisible();
 });
+
+test("should display a log in button", () => {
+    // Arrange
+    render(<Login />);
+
+    // Assert
+    expect(screen.getByRole("button", { name: "Log in" })).toBeVisible();
+});
