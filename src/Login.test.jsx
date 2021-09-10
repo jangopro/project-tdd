@@ -2,16 +2,18 @@ import { render, screen } from "@testing-library/react";
 
 import Login from "./Login";
 
-test("make sure the username field is displayed", () => {
+beforeEach(() => {
     render(<Login />);
-    // Assert
-    expect(screen.getByLabelText("Phone, email or username")).toBeVisible();
 });
 
-test("should display a log in button", () => {
-    // Arrange
-    render(<Login />);
+describe("should display", () => {
+    test("a username field", () => {
+        // Assert
+        expect(screen.getByLabelText("Phone, email or username")).toBeVisible();
+    });
 
-    // Assert
-    expect(screen.getByRole("button", { name: "Log in" })).toBeVisible();
+    test("a log in button", () => {
+        // Assert
+        expect(screen.getByRole("button", { name: "Log in" })).toBeVisible();
+    });
 });

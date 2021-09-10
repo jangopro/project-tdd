@@ -1,5 +1,5 @@
-[ ] assurer que le username field s'affiche (le texte du label soit exact)
-[ ] assurer que le log in button s'affiche
+[X] assurer que le username field s'affiche (le texte du label soit exact)
+[X] assurer que le log in button s'affiche
 
 [ ] assurer que le password field s'affiche
 [ ] The password is either visible as asterisk or bullet signs.
