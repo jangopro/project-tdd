@@ -4,7 +4,7 @@
 [ ] assurer que le password field s'affiche
 [ ] The password is either visible as asterisk or bullet signs.
 
-[ ] assurer que le label de username est associé au input
+[X] assurer que le label de username est associé au input
 [ ] assurer que le label de password est associé au input
 
 ## Authenticaion
@@ -22,3 +22,7 @@
 ## password validation
 
 -   password field is limited to 20 characters
+
+## Login mechanism
+
+[X] quand le user clique sur le bouton Log in, la méthode authenticate est appelée
