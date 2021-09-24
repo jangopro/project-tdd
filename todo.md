@@ -1,16 +1,18 @@
+https://github.com/SoftDevGang/login-form-tdd-ui-kata/tree/master/_Requirements
+
 [X] assurer que le username field s'affiche (le texte du label soit exact)
 [X] assurer que le log in button s'affiche
 
-[ ] assurer que le password field s'affiche
-[ ] The password is either visible as asterisk or bullet signs.
+[X] assurer que le password field s'affiche
+[X] The password is either visible as asterisk or bullet signs.
 
 [X] assurer que le label de username est associé au input
-[ ] assurer que le label de password est associé au input
+[X] assurer que le label de password est associé au input
 
 ## Authenticaion
 
-[ ] avoir un module Authentication
-[ ] contient une méthode authenticate
+[X] avoir un module Authentication
+[X] contient une méthode authenticate
 [ ] la méthode retourne un AuthenticationResult
 
 [ ] assurer que le log in button est bien positioné
@@ -25,4 +27,4 @@
 
 ## Login mechanism
 
-[X] quand le user clique sur le bouton Log in, la méthode authenticate est appelée
+[X] quand le user clique sur le bouton Log in, la méthode authenticate est appelée avec les données du formulaire

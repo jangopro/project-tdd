@@ -13,6 +13,10 @@ describe("should display", () => {
         // Assert
         expect(screen.getByLabelText("Phone, email or username")).toBeVisible();
     });
+    test("a password field", () => {
+        // Assert
+        expect(screen.getByLabelText("Password")).toBeVisible();
+    });
 
     test("a log in button", () => {
         // Assert
@@ -24,11 +28,13 @@ test("should send login credentials to the backend when the user submits the for
     // Arrange
     jest.spyOn(Authentication, "authenticate").mockReturnValue(true);
     const username = "Bob";
+    const password = "passwordValue";
 
     // Act
     userEvent.type(screen.getByLabelText("Phone, email or username"), username);
+    userEvent.type(screen.getByLabelText("Password"), password);
     userEvent.click(screen.getByRole("button", { name: "Log in" }));
 
     // Assert
-    expect(Authentication.authenticate).toHaveBeenCalledWith({ username });
+    expect(Authentication.authenticate).toHaveBeenCalledWith({ username, password });
 });

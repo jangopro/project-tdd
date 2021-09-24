@@ -2,7 +2,7 @@ interface IAuthentication {}
 
 
 class Authentication implements IAuthentication {
-    authenticate(credentials: ({username: string})) {
+    authenticate(credentials: ({username: string, password: string})) {
 
     }
 }
